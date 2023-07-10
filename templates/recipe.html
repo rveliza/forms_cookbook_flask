@@ -3,8 +3,16 @@
     <h1>{{ template_recipes | title }}</h1>
     <h4>{{ template_type }}</h4>
     {% if template_description %}
-        <p>{{ template_description }}</p>
+    <p>{{ template_description }}</p>
     {% else %}
-        <p>{{ template_recipe }}</p>
+    <p>{{ template_recipe }}</p>
     {% endif %}
+
+    <h3>Ingredients - {{ template_ingredients | length }}</h3>
+    <ul>
+        {% for ingredient in template_ingredients %}
+        <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

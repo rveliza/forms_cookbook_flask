@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from helper import recipes, types, descriptions
+from helper import recipes, types, descriptions, ingredients
 
 app = Flask(__name__)
 
@@ -18,7 +18,8 @@ def recipe(id):
     return render_template("recipe.html",
                            template_recipes = recipes[id],
                            template_type = types[id],
-                           template_description = descriptions[id])
+                           template_description = descriptions[id],
+                           template_ingredients = ingredients[id])
 
 @app.route('/about')
 def about():
