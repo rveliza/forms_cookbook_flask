@@ -10,6 +10,14 @@ def index():
     return render_template("index.html",
                            template_recipes = recipes)
 
+@app.route('/recipe/<int:id>')
+def recipe(id):
+    # print(recipes[id])
+    # "buttered toast"
+    # return "Hello" + str(id)
+    return render_template("recipe.html",
+                           template_recipes = recipes[id])
+
 @app.route('/about')
 def about():
     return render_template('about.html')
