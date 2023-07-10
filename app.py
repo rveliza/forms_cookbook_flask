@@ -1,10 +1,14 @@
 from flask import Flask, render_template
+from helper import recipes
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    # print(recipes)
+    # {1: 'fried egg', 2: 'buttered toast'}
+    return render_template("index.html",
+                           template_recipes = recipes)
 
 @app.route('/about')
 def about():
