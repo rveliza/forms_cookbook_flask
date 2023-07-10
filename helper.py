@@ -27,4 +27,9 @@ instructions = {
     2: {"Step 3": "Put the pad of butter on the toasted bread", 
         "Step 4": "After a minute spread the melted butter onto the bread", "Step 1": "Put the bread in the toaster", 
         "Step 2": "Take the toast out of the toaster"}
-        }
+}
+
+comments = {
+    1: ["Yummy!!", "Egg-cellent ;->"], 
+    2: ["Toasty", "What a great recipe!"]
+}
