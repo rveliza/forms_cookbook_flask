@@ -7,3 +7,9 @@ types = {
     1: "Breakfast",
     2: "Breakfast"
 }
+
+descriptions = {
+    1: "Egg fried in butter",
+    2: "Toasted bread spread with butter"
+}
+

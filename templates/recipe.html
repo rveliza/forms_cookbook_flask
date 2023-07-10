@@ -2,4 +2,9 @@
 {% block content %}
     <h1>{{ template_recipes | title }}</h1>
     <h4>{{ template_type }}</h4>
+    {% if template_description %}
+        <p>{{ template_description }}</p>
+    {% else %}
+        <p>{{ template_recipe }}</p>
+    {% endif %}
 {% endblock %}
