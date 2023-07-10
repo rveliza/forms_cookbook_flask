@@ -1,15 +1,25 @@
 from flask import Flask, render_template
-from helper import recipes, types, descriptions, ingredients, instructions, comments
+from helper import recipes, types, descriptions, ingredients, instructions, comments, add_ingredients, add_instructions
 from forms import CommentForm, RecipeForm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecret"
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
     # print(recipes)
     # {1: 'fried egg', 2: 'buttered toast'}
     recipe_form = RecipeForm(csfr_enambled=False)
+    if recipe_form.validate_on_submit():
+        new_id = len(recipes)+1
+        recipes[new_id] = recipe_form.recipe.data
+        types[new_id] = recipe_form.recipe_type.data
+        descriptions[new_id] = recipe_form.description.data
+        new_ingredients = recipe_form.ingredients.data
+        new_instructions = recipe_form.instructions.data
+        add_ingredients(new_id, new_ingredients)
+        add_instructions(new_id, new_instructions)
+        comments[new_id] = []
     return render_template("index.html",
                            template_recipes = recipes,
                            template_form = recipe_form
