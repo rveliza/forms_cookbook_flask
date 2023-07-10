@@ -30,6 +30,6 @@ instructions = {
 }
 
 comments = {
-    1: ["Yummy!!", "Egg-cellent ;->"], 
+    1: ["Yummy!!", "Egg-cellent"], 
     2: ["Toasty", "What a great recipe!"]
 }

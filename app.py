@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from helper import recipes, types, descriptions, ingredients, instructions, comments
-from forms import CommentForm
+from forms import CommentForm, RecipeForm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecret"
@@ -9,8 +9,11 @@ app.config["SECRET_KEY"] = "mysecret"
 def index():
     # print(recipes)
     # {1: 'fried egg', 2: 'buttered toast'}
+    recipe_form = RecipeForm(csfr_enambled=False)
     return render_template("index.html",
-                           template_recipes = recipes)
+                           template_recipes = recipes,
+                           template_form = recipe_form
+                           )
 
 @app.route('/recipe/<int:id>', methods=["GET", "POST"])
 def recipe(id):
