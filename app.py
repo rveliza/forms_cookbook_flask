@@ -7,8 +7,6 @@ app.config["SECRET_KEY"] = "mysecret"
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    # print(recipes)
-    # {1: 'fried egg', 2: 'buttered toast'}
     recipe_form = RecipeForm(csfr_enambled=False)
     if recipe_form.validate_on_submit():
         new_id = len(recipes)+1
@@ -27,19 +25,7 @@ def index():
 
 @app.route('/recipe/<int:id>', methods=["GET", "POST"])
 def recipe(id):
-    # print(recipes[id])
-    # "buttered toast"
-    # return "Hello" + str(id)
     comment_form = CommentForm(csrf_enabled=False)
-    # print(comment_form)
-    # <forms.CommentForm object at 0x000001D0C7E3FFA0>
-    # print(comment_form.comment)
-    # <input id="comment" name="comment" type="text" value="">
-    # print(comment_form.submit)
-    # <input id="submit" name="submit" type="submit" value="Add Comment">
-    # print(comment_form.validate_on_submit())
-    # False
-
     if comment_form.validate_on_submit():
         new_comment = comment_form.comment.data
         comments[id].append(new_comment)
