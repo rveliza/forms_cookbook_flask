@@ -15,4 +15,11 @@
         {% endfor %}
     </ul>
 
+    <h3>Instructions</h3>
+    <ul>
+        {% for key, instruction in template_instructions | dictsort %}
+        <li>{{ instruction }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
