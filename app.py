@@ -24,8 +24,13 @@ def recipe(id):
     # <input id="comment" name="comment" type="text" value="">
     # print(comment_form.submit)
     # <input id="submit" name="submit" type="submit" value="Add Comment">
-    new_comment = comment_form.comment.data
-    comments[id].append(new_comment)
+    # print(comment_form.validate_on_submit())
+    # False
+
+    if comment_form.validate_on_submit():
+        new_comment = comment_form.comment.data
+        comments[id].append(new_comment)
+        
     return render_template("recipe.html",
                            template_recipes = recipes[id],
                            template_type = types[id],
